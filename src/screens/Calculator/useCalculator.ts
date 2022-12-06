@@ -17,33 +17,31 @@ const useCalculator = (): IUseCalculator => {
 
   const calculate = useCallback(() => {
     if (n1 && n2 && operator) {
-      let result;
+      let result: number = 0;
 
       switch (operator) {
         case '+': {
           result = n1 + n2;
-          addLog({ n1, n2, operator, result });
           break;
         }
         case '-': {
           result = n1 - n2;
-          addLog({ n1, n2, operator, result });
           break;
         }
         case 'x': {
           result = n1 * n2;
-          addLog({ n1, n2, operator, result });
           break;
         }
         case '/': {
           result = n1 / n2;
-          addLog({ n1, n2, operator, result });
           break;
         }
         default: {
           break;
         }
       }
+
+      addLog({ n1, n2, operator, result });
 
       Alert.alert('Success!', `${n1} ${operator} ${n2} = ${result}`);
 
